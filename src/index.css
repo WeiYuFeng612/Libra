@@ -1,0 +1,517 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 24%;
+    --card: 0 0% 96%;
+    --card-foreground: 0 0% 24%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 24%;
+
+    --primary: 202 100% 39%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 0 0% 93%;
+    --secondary-foreground: 0 0% 24%;
+
+    --muted: 0 0% 95%;
+    --muted-foreground: 0 0% 38%;
+    --accent: 204 78% 94%;
+    --accent-foreground: 0 0% 18%;
+
+    --destructive: 4 67% 48%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 81%;
+    --input: 0 0% 73%;
+    --ring: 202 100% 42%;
+
+    --radius: 0.1875rem;
+  }
+
+  .dark {
+    --background: 0 0% 12%;
+    --foreground: 0 0% 80%;
+    --card: 240 1% 15%;
+    --card-foreground: 0 0% 80%;
+    --popover: 240 1% 15%;
+    --popover-foreground: 0 0% 80%;
+
+    --primary: 202 100% 39%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 0 0% 20%;
+    --secondary-foreground: 0 0% 80%;
+
+    --muted: 0 0% 18%;
+    --muted-foreground: 0 0% 62%;
+    --accent: 204 86% 24%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 85% 63%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 24%;
+    --input: 0 0% 31%;
+    --ring: 202 100% 42%;
+  }
+}
+
+.libra-vscode-shell {
+  --vscode-editor: hsl(var(--background));
+  --vscode-panel: hsl(var(--card));
+  --vscode-titlebar: hsl(var(--card));
+  --vscode-border: hsl(var(--border));
+  --vscode-muted: hsl(var(--muted-foreground));
+  --vscode-accent: hsl(var(--primary));
+  --vscode-hover: hsl(var(--accent));
+  background: var(--vscode-editor);
+  color: hsl(var(--foreground));
+  font-family: "Segoe UI Variable Text", "Segoe UI", sans-serif;
+}
+
+.dark .libra-vscode-shell,
+.libra-vscode-shell[data-theme="dark"] {
+  --vscode-editor: #1e1e1e;
+  --vscode-panel: #252526;
+  --vscode-titlebar: #181818;
+  --vscode-border: #3c3c3c;
+  --vscode-muted: #9d9d9d;
+  --vscode-accent: #007acc;
+  --vscode-hover: #2a2d2e;
+}
+
+.libra-vscode-shell .libra-titlebar {
+  background: var(--vscode-titlebar);
+  border-color: var(--vscode-border);
+  box-shadow: none;
+  backdrop-filter: none;
+}
+
+.libra-vscode-shell .libra-workbench {
+  background: var(--vscode-editor);
+  scrollbar-color: var(--vscode-border) transparent;
+}
+
+/* Keep shared application surfaces compact and panel-like. */
+.libra-vscode-shell [class*="rounded-"]:not([class*="rounded-full"]) {
+  border-radius: var(--radius);
+}
+
+.libra-vscode-shell .shadow,
+.libra-vscode-shell .shadow-sm,
+.libra-vscode-shell .shadow-md,
+.libra-vscode-shell .shadow-lg,
+.libra-vscode-shell .shadow-xl,
+.libra-vscode-shell .shadow-2xl {
+  box-shadow: none;
+}
+
+.libra-vscode-shell [class*="bg-gradient"] {
+  background-image: none;
+}
+/* VS Code-style activity bar, secondary sidebar and editor tab. */
+.libra-vscode-shell .libra-activitybar {
+  background: var(--vscode-titlebar);
+  border-right: 1px solid var(--vscode-border);
+}
+
+.libra-vscode-shell .libra-activity-brand {
+  border-radius: 2px;
+}
+
+.libra-vscode-shell .libra-activity-brand:hover {
+  background: var(--vscode-hover);
+}
+
+.libra-vscode-shell .libra-activity-item {
+  position: relative;
+  width: 100%;
+  height: 40px;
+  border-radius: 0;
+  color: var(--vscode-muted);
+}
+
+.libra-vscode-shell .libra-activity-item::before {
+  position: absolute;
+  top: 6px;
+  bottom: 6px;
+  left: 0;
+  width: 2px;
+  content: "";
+  background: transparent;
+}
+
+.libra-vscode-shell .libra-activity-item:hover {
+  background: var(--vscode-hover);
+  color: hsl(var(--foreground));
+}
+
+.libra-vscode-shell .libra-activity-item.is-active {
+  background: color-mix(in srgb, var(--vscode-accent) 12%, transparent);
+  color: hsl(var(--foreground));
+}
+
+.libra-vscode-shell .libra-activity-item.is-active::before {
+  background: var(--vscode-accent);
+}
+
+.libra-vscode-shell .libra-sidebar {
+  background: var(--vscode-panel);
+  border-color: var(--vscode-border);
+}
+
+.libra-vscode-shell .libra-sidebar-heading,
+.libra-vscode-shell .libra-sidebar-status {
+  background: color-mix(in srgb, var(--vscode-titlebar) 82%, transparent);
+  border-color: var(--vscode-border);
+}
+
+.libra-vscode-shell .libra-sidebar-section {
+  margin: 0 0 0.75rem;
+  padding: 0 0.75rem;
+}
+
+.libra-vscode-shell .libra-sidebar-section-label {
+  margin: 0 0 0.35rem;
+  color: var(--vscode-muted);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.libra-vscode-shell .libra-sidebar-action {
+  min-height: 29px;
+  border-radius: 2px;
+  color: hsl(var(--muted-foreground));
+}
+
+.libra-vscode-shell .libra-sidebar-action:hover {
+  background: var(--vscode-hover);
+  color: hsl(var(--foreground));
+}
+
+.libra-vscode-shell .libra-sidebar .inline-flex.min-h-9 {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  overflow: hidden;
+  border-color: var(--vscode-border);
+}
+
+.libra-vscode-shell .libra-sidebar .inline-flex.min-h-9 > button {
+  width: 100%;
+  min-width: 0;
+  border-color: var(--vscode-border);
+}
+
+.libra-vscode-shell .libra-editor-tab {
+  background: var(--vscode-titlebar);
+  border-color: var(--vscode-border);
+}
+
+@media (max-width: 720px) {
+  .libra-vscode-shell .libra-sidebar {
+    position: absolute;
+    z-index: 45;
+    top: 0;
+    bottom: 0;
+    left: 48px;
+    box-shadow: 8px 0 20px rgba(0, 0, 0, 0.18);
+  }
+}
+
+/* Liquid glass is reserved for primary actions so the VS Code workbench stays compact. */
+.libra-liquid-glass-defs {
+  position: fixed;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.liquid-glass-button {
+  --liquid-x: 28%;
+  --liquid-y: 18%;
+  --liquid-border: rgba(255, 255, 255, 0.76);
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: radial-gradient(
+    135% 185% at var(--liquid-x) var(--liquid-y),
+    rgba(255, 255, 255, 0.96) 0%,
+    rgba(218, 241, 255, 0.72) 17%,
+    rgba(94, 182, 255, 0.38) 47%,
+    rgba(0, 122, 204, 0.58) 100%
+  );
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.92),
+    inset 0 -1px 1px rgba(0, 54, 91, 0.25),
+    0 2px 8px rgba(0, 68, 111, 0.25);
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.42);
+  transform: translateZ(0);
+  transition:
+    background 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
+  -webkit-backdrop-filter: blur(12px) saturate(140%) contrast(1.04);
+  backdrop-filter: blur(12px) saturate(140%) contrast(1.04);
+}
+
+@supports (backdrop-filter: url("#libra-liquid-glass-refraction")) {
+  .liquid-glass-button {
+    backdrop-filter: url("#libra-liquid-glass-refraction") blur(12px)
+      saturate(140%) contrast(1.04);
+  }
+}
+
+.liquid-glass-button::before,
+.liquid-glass-button::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  pointer-events: none;
+}
+
+.liquid-glass-button::before {
+  background:
+    linear-gradient(112deg, rgba(255, 255, 255, 0.58), transparent 34%),
+    radial-gradient(
+      70% 85% at var(--liquid-x) var(--liquid-y),
+      rgba(255, 255, 255, 0.46),
+      transparent 72%
+    );
+  mix-blend-mode: soft-light;
+  opacity: 0.9;
+}
+
+.liquid-glass-button::after {
+  border: 1px solid var(--liquid-border);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.72),
+    inset 0 -1px 0 rgba(0, 42, 70, 0.16);
+}
+
+.liquid-glass-button:hover:not(:disabled) {
+  --liquid-border: rgba(255, 255, 255, 0.92);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 1),
+    inset 0 -1px 1px rgba(0, 54, 91, 0.3),
+    0 4px 14px rgba(0, 93, 152, 0.32);
+  transform: translateY(-1px);
+}
+
+.liquid-glass-button:active:not(:disabled) {
+  box-shadow:
+    inset 0 2px 4px rgba(0, 48, 80, 0.23),
+    inset 0 1px 0 rgba(255, 255, 255, 0.56);
+  transform: translateY(0);
+}
+
+.dark .liquid-glass-button {
+  --liquid-border: rgba(206, 238, 255, 0.36);
+  background: radial-gradient(
+    135% 185% at var(--liquid-x) var(--liquid-y),
+    rgba(167, 220, 255, 0.48) 0%,
+    rgba(42, 126, 190, 0.54) 30%,
+    rgba(0, 78, 132, 0.72) 65%,
+    rgba(0, 47, 79, 0.84) 100%
+  );
+  box-shadow:
+    inset 0 1px 0 rgba(224, 246, 255, 0.31),
+    inset 0 -1px 1px rgba(0, 0, 0, 0.38),
+    0 2px 10px rgba(0, 0, 0, 0.28);
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.38);
+}
+
+.dark .liquid-glass-button:hover:not(:disabled) {
+  --liquid-border: rgba(231, 248, 255, 0.55);
+  box-shadow:
+    inset 0 1px 0 rgba(230, 247, 255, 0.46),
+    inset 0 -1px 1px rgba(0, 0, 0, 0.45),
+    0 4px 15px rgba(0, 0, 0, 0.38);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .liquid-glass-button {
+    transition: none;
+  }
+}
+
+.glass {
+  background: hsl(var(--card));
+  border: 1px solid hsl(var(--border));
+}
+
+.dark .glass {
+  background: hsl(var(--card));
+  border-color: hsl(var(--border));
+}
+
+.glass-card {
+  background: hsl(var(--card));
+  border: 1px solid hsl(var(--border));
+  border-radius: var(--radius);
+  box-shadow: none;
+}
+
+.dark .glass-card {
+  background: hsl(var(--card));
+  border-color: hsl(var(--border));
+}
+
+.glass-card-active {
+  background: hsl(var(--accent));
+  border: 1px solid hsl(var(--primary));
+}
+
+.dark .glass-card-active {
+  background: hsl(var(--accent));
+  border-color: hsl(var(--primary));
+}
+
+.glass-header {
+  background: hsl(var(--background));
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border: none;
+  border-top: 2px solid hsl(var(--border));
+}
+
+.dark .glass-header {
+  background: hsl(var(--background));
+  border: none;
+  border-top: 2px solid hsl(var(--border));
+}
+
+[data-tauri-drag-region] {
+  -webkit-app-region: drag;
+}
+
+[data-tauri-no-drag],
+[data-tauri-drag-region] .no-drag {
+  -webkit-app-region: no-drag;
+}
+
+* {
+  box-sizing: border-box;
+  scrollbar-width: thin;
+  scrollbar-color: hsl(var(--border)) transparent;
+}
+
+html {
+  @apply font-sans antialiased;
+  line-height: 1.5;
+  color-scheme: light;
+  overscroll-behavior: none;
+}
+
+body {
+  @apply m-0 p-0 text-sm;
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+}
+
+html.dark {
+  color-scheme: dark;
+}
+
+::-webkit-scrollbar {
+  display: block;
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--border));
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: hsl(var(--muted-foreground));
+}
+
+*:focus-visible {
+  outline: 1px solid hsl(var(--ring));
+  outline-offset: -1px;
+}
+
+@layer utilities {
+  .scroll-overlay {
+    scrollbar-gutter: stable both-edges;
+    padding-right: 0.5rem;
+    margin-right: -0.5rem;
+    overflow-x: hidden;
+  }
+
+  .border-default {
+    border-width: 1px;
+    border-color: hsl(var(--border));
+  }
+
+  .border-active {
+    border-width: 2px;
+  }
+
+  .border-border-default {
+    border-color: hsl(var(--border));
+  }
+
+  .border-border-active {
+    border-color: hsl(var(--primary));
+  }
+
+  .border-border-hover {
+    border-color: hsl(var(--primary) / 0.4);
+  }
+
+  .border-border-dragging {
+    border-color: hsl(var(--primary) / 0.6);
+  }
+}
+
+input[type="password"]::-ms-reveal,
+input[type="password"]::-ms-clear {
+  display: none;
+}
+
+/*
+ * Usage date-range picker popover.
+ *
+ * The two-column layout (date fields | calendar) must depend on how much
+ * width the popover itself actually has — not on the viewport. The popover is
+ * clamped to `100vw - 2rem` and anchored to its trigger, so a viewport-based
+ * breakpoint (e.g. Tailwind `sm:`) could enable the wide layout while the
+ * popover only had room for one column, pushing the calendar off-screen.
+ *
+ * A container query keys the layout to the popover's own inline size. The base
+ * (stacked) layout is the safe fallback when container queries are
+ * unsupported, keeping the calendar fully visible at any width.
+ */
+.usage-range-popover {
+  container-type: inline-size;
+}
+
+@container (min-width: 500px) {
+  .usage-range-layout {
+    flex-direction: row;
+  }
+
+  .usage-range-fields {
+    width: 250px;
+    flex: none;
+  }
+
+  .usage-range-calendar {
+    min-width: 0;
+    flex: 1 1 0%;
+  }
+}
