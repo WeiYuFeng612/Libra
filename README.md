@@ -8,6 +8,7 @@
 针对Codex进行优化
 
 非新增部分完全为CCSwitch源代码，未进行任何更改
+向CCSwitch和CodexRader Develop Group致谢
 
 ### 🌐 网站：**[libra.irises.cc](https://libra.irises.cc)**
 
