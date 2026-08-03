@@ -4,9 +4,11 @@
 
 # Libra
 
-**面向 AI 编程工具的一站式配置、供应商与工作流管理器**
+**面向 AI 编程工具的一站式配置、供应商与工作流管理器，无广版Codex++，功能齐全版CCSwitch**
 
 统一管理 Claude Code、Claude Desktop、Codex、Gemini CLI、Grok Build、OpenCode、OpenClaw 与 Hermes Agent。
+
+再次由衷感谢CodexRader | CCSwitch | Codex++的奉献
 
 [官方网站](https://libra.irises.cc) · [使用文档](docs/user-manual/zh/README.md) · [更新日志](CHANGELOG.md) · [问题反馈](https://github.com/farion1231/cc-switch/issues)
 
